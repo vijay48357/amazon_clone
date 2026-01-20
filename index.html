@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Navbar flex</title>
+</head>
+
+<body>
+  <header>
+    <div id="logo-img">
+      <img
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAR4AAACwCAMAAADudvHOAAAA4VBMVEUAAAD+/v79/f3////8mgAcHBz/nADZ2dmtra2BgYGpqalmZmb/ngD/mwDGxsYAAAPOzs5UVFTV1dVgYGD39/fx8fEAAAg1NTVMTEyYmJjf399xcXHm5uZ6enqzs7PBwcE+Pj5aWlorKytGRkahoaGUlJQLCwsUFBSLi4swMDBra2s6OjpBLRGaYhXulREbHBtOMhF4TwyvbhC+dQyiZA6BThAzIQ4oHQtWNg/gihRqSRGPXBTMghj1mRMZEwrXixRyThNdPxAmFwsWEwhtRRlCMA9bPw1EKBExHgy2bw1JNA0MHEb/AAAOI0lEQVR4nO1bC1ciuRKmOzylEURAXgoKPgaVHZB5IDA+7uzunfn/P+h2J6lHulsHbfCOc/Kd3eOYTlclX1cqVZWYSllYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhsCXutXq7drhwVMr/ser7fKYZ6ZYqd0dMvnhSOKu12rtfaSzTEQefwcH+djvudUT+RphCaPVcg2oXQ08uCwqX87aIre3VZr5gmhtMuyXaPLkNPO/l4DM/MfqOKo0R0W2EFH/T4BvK345zS1Dt4EQVPo+kLdBzH9f8L/heifmg8R+r8f2e6QV+/mxBV/XhQ9wejXux+iAgf+s0uF757zh+fiKeww7vtBWqVDP9RiKA6vBIwmpfjk91OEzMTYCcYv6v5CX74c+ix53/J6QUaM6lMTY/Sh2jLx/uKW/mycEPG0a8HzAE3SrjLl9gAhEuR8COQzoewoyjWNDuibVCsyXdFP5U6Ei4M0BHDDbCzK9woxC51yEAHn54u7yxn0BdGU82QvSdihAsxoB7NOO1heiJDFLUTpgVb+6mC0VN0ErNzFHz7KJgBZ4IvJ9tSQ7Oz2Ass22ziH/1AwKtmH8ZhM1693+kI+/SifUSNuSZXP/fpEUZX4SZlpyNc5hn0j2BOAu03I7sENn2CDkD98JfXhQi9LJhH7MYJD2TnOT186VFX4vk0sIiwDJEz6FHDOdkRprqwl3oxarTaHccwTHSNtLjyESM/qEeayKW22DMu3JFOnuiJX1ywvC/je4gLoseB0bihrqKejJ0LmoH0/Q5OgyRnBPi6sHbffCKuQ3SJenyo9mR42//2GAI0mUpTDlhYjt7jA2QLB+kZhkdj2PIr0MW1KqqHzeNT5kkEbEKZWAeiO0VbBHiFQ5LtDouDYo8cA3n+S2Mz53KKqsMevSQq+SMaIC0c8D2Oa/yQneJDsTXRx5mDnKqISDboCc8i2oT7UgUawaCKJJuMPt8m5JiUekRKTX6vIf0eoQdGw34zoqeXooW6MERAXSiZ0yPqw9O8a24PojfssSYx0u+BadE8aJcUqTicMCkdUI4tfdWyK0JdDHpE77Cwy8TsxulZFxUd0bGt9kjA1gVbR0CP62rlsqWrgmzZJtpyMeXkkKRf0SG3ssxAODpRmr4IpQwKbQgwaWM6jQznA7ZUgB4Hh6OWZEHr8d1RLqLkBWgLFagyG+wI5YVdTo+ru2mLHwgMdIFY2Um16EU50i3cUuoOCI9mH4GzAhnkUnNauYyxaNBqOGdADw5Q+6MqTqKbSoAL8InH2LSH2zh8HNzYaTOlDQtsxTdEaNH0nEEmyj5gFTuxwBlBQQbGhGfwgkP2nQ9rwg0VO3WwixnFvxjnx4fDXo6FuhiIYMqJ9ARJl8IONcF7rfCgffRHp/lKm6gPFrPuFFPa2KEdHDftkYAEr4L9DlGTdiwuSoVFgKwmj5tDeIYe2m9ohGgaGEGxeC0CMDGHmSvghIVgyDBGMizHuAxbFFoPkV7HFPcVFDwHGaRKl0H0hFv8LF21sMzoUHlMw3oiqKA/itIjLUtl3m2zUUplpAsZnwaNKjRzHTfs5WD1b5ieyybsXIb16BZcg3swFcqeikInRk/Sk2l26g6IitCzj8mXI5rYWsfvwJLvWkiVq6U6FE0B1xujZ1A4qtZkmU1/DO6a9ZzQVJpID255z9FzNhrudh1DeMT3dMGwjKTfhTf4C3VUpbQDPWyb2t0oPYUKZEV6hTgvpmf/KXoud9QW5rpceJieU5BohIwZ4qxPrW1UpXwz9qFFuYsrNREvEi03kijwqAsDV4Me3YSLax+bDHoG1TjZToQelo8xL3NJrSy3xMRH84H1HgohIHAWTlJyBnXtetHDaWdouGbZwugBZ8jogXXD6cmLJ4SHfE8PdDhGDeIY1pYjWHmwoh0SbKVQjjXo0XFiUuvpCNhyXHMikZ0rRI9yCc/Tk9NZgiHcidIzgPUb2tOK5KxMenQjo4ePeHP0FI38lqe7nJ7w4tpbb3G1w7JJuEkPdWThXyr4dthu0AONKvDBxcXp0U3J6OE5sh/+5087lMSvRQ9zzRF6elx4vTcsjLC8JIzjvEOqq3AaVNCsH7Ak7e3oaQu0TFcdC6Gdx8Q9nJ5f71y41QcpwZ6emI5QTHpqEHiGz1726UGf0wOq9OKCPgY9G9jYmfF2demdNiVwdK+1HlWIlyZBeWuc9ezElckkBvSEQsVInW1r1oNrnsb1WnqKYXpYbRAPXWPpOaFyW/hgihWImLOqhtY/0kN+ayP0fIDvy7Q38VQr6nvQD69DTy80iQCx9FRpFOHi1Rk5JUYcfVQVX2OfDdNzivkwxZt4bBmTsTN6oMlIKox0m/LoEQqneg+FhUU6qImeK9RRyEVc46mhyaBnAykplW3puKy4Ievp4+8sSaDvzrNOJyIfkYsZISuHHxu/b9p64MScm+5FjPXA13mJ9VDBjtUz8aYBWQ87KxSFw9HAvCV0hFIoT8XCEBC/Leuh0ZIr6EWm9Qw9ztP0tPAtoueDQIXwPf6ipaVDx1p12Mc3DmOW/z4qb2+XHgeOpJn11PVtHAcLtxloMReXPIcwFpc+iUd69GE50aMP5Pla6YFw/GFcpDqBN1huOUTlQ6RH9TEXlzrASECPi/TgTSGqSmG5PCk9VA1vo3CYyblwGD14e8APsvUH68LFHjg1VQ5MKe//kp5EBQ0cFgnOCTyDhanTBZaXuOYWeVzYj44pyXC126CD5hCEVpZH5XCgRz4fzFKfuG3cNbNN4xyG6xI9Igk9F9ENqcu40Kur9RQ9kGU1KfLpKykUO4HJb4ueigD70ZKPha4V8MWU0YU+x3TNyp65a9aiCloUrdImzAtXD9xUGApsAa341qHmFN6oI6HqOQYMMGR2YryrZ5aInjxUtYITmWL/GMvwUE/pa3p0H3PnciI7l8PrPVjg8nu1+v1CnWo6LhZCd6B0w7SCckVPAetpona6N8J0lCXIcEpq0qNFJaBnxO7DQD2YQ+l7ZdTMriE6scIPUuzEMwrI1OiClWNIwTNJ2thD9CTd2FP84pW2UJePIAk9kbtI8iEpjNCjfHaEnqIhhxIQuhawNXqORGTZi3oVV3f9HOhRq5/To92T4ZoVvZqec+Fw4arMQ2GOcqwwAGkXtVrNwfMSyvN7gsvQ4+SlD1cPMOx7ZNck9GQipwjC/6i6UdQyutPLdi6YVvTOq+8uoFGHdPLXoE45LKoy4UEn31VFVyqDdKPbmxDsAjXmXJyeDexcfPsFtXtwAUu4J8Dh6+gJ3+lVw1dzgYA3L3yV7dCp/Emr7hNEcoK75uFh8lr19ugJ7ptzta7cg4PPhey8np4TY1pCbTWyQImvtXzDifs7lE6dM5AJ2Y9wmrzzc/QkPecq4PmB/4+KulDkfy7hYu3lDG9GYiGY/hICP/weNmH0nzpvI/m+QE3bjmA8n+1Q79C4jL+IYNc2g7/mMO+W4d989Hh/hcSnpOd5/ScbtR5+x4N6ja3tVk6hQqcIO7qJXd070k1008RHJ6eH2abZ5oXRZT00K0h/Lsxowdfabudy1T42Dap6NIlupmocdC4Ko7jrbBvA2XGhcNg0PnfsvcJfIlPoVdrV3sWWxmlh8Sej8XFyPb25ufkx+3TV+H8PZg18/vJ2ur5O556X1fC81fK2/HbKX4WGl75+m6/YWIy9UqmUZih5y9/cghr+GOdXb6BosvIMahS8j2+gOgluPZ+g2ba1fLvzotwE9Ey2rTkp7n1+suOHrer4mI6xnPdBT8BP4AX+uz0N5ZWvQXpjL71ardKeBz7Iu9+e1k1hEhh+KT3bmpssj1fz5XRx//Xzt3KjXG58eZiuFD/edq12M7iV/JRWi20RVNYbOO3jjfH7cM0SX7WpjyfbDESuJkR/eSF9tfdti/o2h6tVtqQI2poFfb3zsmMSfqvo+c3jHsDjOKstaHW9BQsqf78Lwh7vK7Y8yAU9/t3DZkBjqfkpZdPTfzcsOwiYpfv/D7ZJ68kuN6tom5hC5FbKencbdEJX01VW5xC31Cp9T3br8egGcU/BW8lL//i5CZmNT3NIJkrGLj4NKPO+b0LHW+HznIX+WW88+zuZDTUmSy+L8sZfuLS77PvZuACNKc8b/UU2nj68dm/5NlmmmTTvpsHZCQLpdGn+Xjwz4PvKzI6yXnq5uHrpLBoPs7mXZdWLUjrkzK7eneuRKDduwoUHP1daLa/XtqJvt7O7dKiy492FV9Ei+25i5hAextl0GEE2OV7Obj/7z+N58o2j/PdkthwH9UDz5dJqkgrZX/mm9J6iHgONmRclSObcAUl3N7PF/T//Pp6Vy0F+WT57vPpnspjd3Elisulw7aLkTRthdpTreX9rS+NLZIVxklRpIqhO+OsjgCoex75R8u7iPNdH+e772rcYyj/vniToJfDm8RWL68DKbt54UhvF13lSgrLe/Kmwbx5Q9/lN57NxfFzG+qA1UfKWX5+S/Oivrey7Nh6JL9PV6xjyY4HpM9XZRZC9v+4Y/vdCkBe8cJGV/Gh7ef/snn1XSnuLyHb2LlF+XARnm+ty429qy8VZ6tm5l7106a78R7Aj8W1ys6LjhaepKXnjH7e/Dq8/+fb4+AbDfjuUU1eLm7GMcWJYKsmQcT6dPK5lEvPSuziheDEaD4sf87GMBbMe3CTw0qv5cjZZP28te77j+TMRcFD+8vP7p8X1bDa7vl7cP1ydqfb1fcntp62N7zfDq/zrn+OULSwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLP4s/A9U6ObKi1vkjAAAAABJRU5ErkJggg=="
+        alt="amazon">
+    </div>
+
+
+    <div id="logo-name">
+      <div>
+        <i class="fa-solid fa-location-dot "></i>
+      </div>
+      <div>
+        <p style="font-size: x-small; font-weight: 700; color: rgb(176, 184, 187);">Delivery to Salem 638004</p>
+        <p style="font-weight: 900; font-size: small;">Update location</p>
+      </div>
+    </div>
+
+
+    <div id="search">
+      <div id="function">
+        <p>All</p>
+        <i></i>
+      </div>
+      <div id="content">
+        <input type="text" placeholder="search for the location" id="clock">
+      </div>
+      <div id="icon">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+    </div>
+
+
+    <div id="menu">
+      <div>
+        <img
+          src="data:image/png;base64,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"
+          alt="india" id="india">
+      </div>
+      <p style="font-weight: 700;">EN</p>
+    </div>
+
+
+    <div id="look">
+      <p style="font-size: small; color:  rgb(176, 184, 187);">Hello,sign in</p>
+      <p style="font-weight: 500; ">Account & List</p>
+    </div>
+
+    <div id="like">
+      <p style="font-size: small; color: rgb(176, 184, 187) ;">Return</p>
+      <p style="font-weight:500;">& Orders</p>
+    </div>
+
+    <div id="row">
+      <i class="fa-solid fa-cart-shopping" id="shop"></i>
+      <div>
+        <p style="font-weight: 500;">Cart</p>
+      </div>
+    </div>
+  </header>
+  <!-- <!.....................................secondnavbar..................................> -->
+
+  <div id="nav2">
+    <div id="nav3">
+      <i class="fa-solid fa-bars"></i>
+      <div>All</div>
+    </div>
+    <div id="2">Fresh</div>
+    <div id="3">MX Player</div>
+    <div id="4">Sell</div>
+    <div id="5">Bestseller</div>
+    <div id="6">Today's Deals</div>
+    <div id="7">Moblie</div>
+    <div id="8">Prime</div>
+    <div id="9">Customer Service</div>
+    <div id="10">Electrionics</div>
+    <div id="11">Fastion</div>
+    <div id="12">New Releases</div>
+  </div>
+
+  <!-- ...................................main page.................................. -->
+
+  <div id="amazonpage">
+    <div>
+      <img
+        src="https://images-eu.ssl-images-amazon.com/images/G/31/IN/Prime/GIF/25/Jupiter_Early-Deals_8sep_PC_hero_1x._CB800480062_.jpg"
+        alt="festival">
+    </div>
+  </div>
+
+
+  <!-- ...................................main page.................................. -->
+
+  <div class="main">
+    <div class="photo">
+      <div>
+        <p style="font-weight: 900; align-items: center; display: flex; padding: 5px; justify-content: center;">
+          Automotive essentials | Up to 60% off</p>
+      </div>
+      <div class="img_container">
+        <div>
+          <img
+            src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG20/Home/2024/Gateway/BTFGW/PCQC/New/1x/final/186x116_Home_furnishings_2._SY116_CB555624324_.jpg"
+            alt="cushion">
+          <p>Cushion covers, bedsheets & more</p>
+        </div>
+        <div>
+          <img
+            src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG20/Home/2024/Gateway/BTFGW/PCQC/New/1x/final/186x116_Home_decor_1._SY116_CB555624324_.jpg"
+            alt="figurine">
+          <p>Figurines, vases & more</p>
+        </div>
+        <div>
+          <img
+            src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG20/Home/2024/Gateway/BTFGW/PCQC/New/1x/final/186x116_Home_storage_1._SY116_CB555624324_.jpg"
+            alt="home">
+          <p>Home storage</p>
+        </div>
+        <div>
+          <img
+            src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG20/Home/2024/Gateway/BTFGW/PCQC/New/1x/final/186x116_Home_lighting_2._SY116_CB555624324_.jpg"
+            alt="light">
+          <p>Lighting solution</p>
+        </div>
+      </div>
+      <div>
+        <p> See More....</p>
+      </div>
+
+    </div>
+
+    <div class="photo">
+      <div>
+        <p style="font-weight: 900; align-items: center; display: flex; padding: 5px; justify-content: center;">
+          Automotive essentials | Up to 60% off</p>
+      </div>
+      <div class="img_container">
+        <div>
+          <img
+            src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG20/Home/2024/Gateway/BTFGW/PCQC/New/1x/final/186x116_Home_furnishings_2._SY116_CB555624324_.jpg"
+            alt="cushion">
+          <p>Cushion covers, bedsheets & more</p>
+        </div>
+        <div>
+          <img
+            src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG20/Home/2024/Gateway/BTFGW/PCQC/New/1x/final/186x116_Home_decor_1._SY116_CB555624324_.jpg"
+            alt="figurine">
+          <p>Figurines, vases & more</p>
+        </div>
+        <div>
+          <img
+            src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG20/Home/2024/Gateway/BTFGW/PCQC/New/1x/final/186x116_Home_storage_1._SY116_CB555624324_.jpg"
+            alt="home">
+          <p>Home storage</p>
+        </div>
+        <div>
+          <img
+            src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG20/Home/2024/Gateway/BTFGW/PCQC/New/1x/final/186x116_Home_lighting_2._SY116_CB555624324_.jpg"
+            alt="light">
+          <p>Lighting solution</p>
+        </div>
+      </div>
+      <div>
+        <p> See More....</p>
+      </div>
+
+    </div>
+
+    <div class="photo">
+
+      <div>
+        <p style="font-weight: 900; align-items: center; display: flex; padding: 5px; justify-content: center;">
+          Revamp your home in style</p>
+      </div>
+      <div class="img_container">
+        <div>
+          <img
+            src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG20/Home/2024/Gateway/BTFGW/PCQC/New/1x/final/186x116_Home_furnishings_2._SY116_CB555624324_.jpg"
+            alt="cushion">
+          <p>Cushion covers, bedsheets & more</p>
+        </div>
+        <div>
+          <img
+            src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG20/Home/2024/Gateway/BTFGW/PCQC/New/1x/final/186x116_Home_decor_1._SY116_CB555624324_.jpg"
+            alt="figurine">
+          <p>Figurines, vases & more</p>
+        </div>
+        <div>
+          <img
+            src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG20/Home/2024/Gateway/BTFGW/PCQC/New/1x/final/186x116_Home_storage_1._SY116_CB555624324_.jpg"
+            alt="home">
+          <p>Home storage</p>
+        </div>
+        <div>
+          <img
+            src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG20/Home/2024/Gateway/BTFGW/PCQC/New/1x/final/186x116_Home_lighting_2._SY116_CB555624324_.jpg"
+            alt="light">
+          <p>Lighting solution</p>
+        </div>
+      </div>
+      <div>
+        <p> See More....</p>
+      </div>
+
+    </div>
+
+    <div class="blade">
+
+      <p style="font-weight: 900; align-items: center; display: flex; padding: 5px; justify-content: center;">
+        Sign in for your best experience</p>
+      <div class="button">sign in securely</div>
+
+      <div class="board">
+        <img src="https://m.media-amazon.com/images/S/al-eu-726f4d26-7fdb/bfff1e35-64a0-442d-b3ec-254d5b681e32.jpg"
+          alt="">
+      </div>
+    </div>
+
+
+  </div>
+
+  <!-- <!........................  page2 .....................................................................................................!>  -->
+
+  <div class="container">
+
+    <div class="page2">
+      <p style="font-weight: 900; align-items: center; display: flex; padding: 5px; justify-content: center;">
+        Automotive essentials | Up to 60% off</p>
+      <div class="cart">
+        <div class="cartimg">
+          <div>
+            <img
+              src="https://images-eu.ssl-images-amazon.com/images/G/31/img18/HomeImprovement/harsmisc/2025/March/Wipes_low_res_V1._SY116_CB549138744_.jpg"
+              alt="supplies">
+            <p>Lorem ipsum dolor sit amet,</p>
+          </div>
+
+          <div>
+            <img
+              src="https://images-eu.ssl-images-amazon.com/images/G/31/img18/HomeImprovement/harsmisc/2025/March/Shower_heads_low_res_V1._SY116_CB549138744_.jpg"
+              alt="accessories">
+            <p>Lorem, ipsum dolor.</p>
+          </div>
+
+          <div>
+            <img
+              src="https://images-eu.ssl-images-amazon.com/images/G/31/img18/HomeImprovement/harsmisc/2025/March/Tools_low_res_V1._SY116_CB549138744_.jpg"
+              alt="tool">
+            <p>Lorem, ipsum dolor.</p>
+          </div>
+
+          <div>
+            <img
+              src="https://images-eu.ssl-images-amazon.com/images/G/31/img18/HomeImprovement/harsmisc/2025/March/Wallpapers_low_res_V1._SY116_CB549138744_.jpg"
+              alt="wallpaper">
+            <p>Lorem, ipsum dolor.</p>
+          </div>
+          <div>
+            <a href="see more">See More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page2">
+      <p style="font-weight: 900; align-items: center; display: flex; padding: 5px; justify-content: center;">
+        Automotive essentials | Up to 60% off</p>
+      <div class="cart">
+        <div class="cartimg">
+          <div>
+            <img
+              src="https://images-eu.ssl-images-amazon.com/images/G/31/img18/HomeImprovement/harsmisc/2025/March/Wipes_low_res_V1._SY116_CB549138744_.jpg"
+              alt="supplies">
+            <p>Lorem ipsum dolor sit amet,</p>
+          </div>
+
+          <div>
+            <img
+              src="https://images-eu.ssl-images-amazon.com/images/G/31/img18/HomeImprovement/harsmisc/2025/March/Shower_heads_low_res_V1._SY116_CB549138744_.jpg"
+              alt="accessories">
+            <p>Lorem, ipsum dolor.</p>
+          </div>
+
+          <div>
+            <img
+              src="https://images-eu.ssl-images-amazon.com/images/G/31/img18/HomeImprovement/harsmisc/2025/March/Tools_low_res_V1._SY116_CB549138744_.jpg"
+              alt="tool">
+            <p>Lorem, ipsum dolor.</p>
+          </div>
+
+          <div>
+            <img
+              src="https://images-eu.ssl-images-amazon.com/images/G/31/img18/HomeImprovement/harsmisc/2025/March/Wallpapers_low_res_V1._SY116_CB549138744_.jpg"
+              alt="wallpaper">
+            <p>Lorem, ipsum dolor.</p>
+          </div>
+
+          <div>
+            <a href="see more">See More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page2">
+      <p style="font-weight: 900; align-items: center; display: flex; padding: 5px; justify-content: center;">
+        Automotive essentials | Up to 60% off</p>
+      <div class="cart">
+        <div class="cartimg">
+          <div>
+            <img
+              src="https://images-eu.ssl-images-amazon.com/images/G/31/img18/HomeImprovement/harsmisc/2025/March/Wipes_low_res_V1._SY116_CB549138744_.jpg"
+              alt="supplies">
+            <p>Lorem ipsum dolor sit amet,</p>
+          </div>
+
+          <div>
+            <img
+              src="https://images-eu.ssl-images-amazon.com/images/G/31/img18/HomeImprovement/harsmisc/2025/March/Shower_heads_low_res_V1._SY116_CB549138744_.jpg"
+              alt="accessories">
+            <p>Lorem, ipsum dolor.</p>
+          </div>
+
+          <div>
+            <img
+              src="https://images-eu.ssl-images-amazon.com/images/G/31/img18/HomeImprovement/harsmisc/2025/March/Tools_low_res_V1._SY116_CB549138744_.jpg"
+              alt="tool">
+            <p>Lorem, ipsum dolor.</p>
+          </div>
+
+          <div>
+            <img
+              src="https://images-eu.ssl-images-amazon.com/images/G/31/img18/HomeImprovement/harsmisc/2025/March/Wallpapers_low_res_V1._SY116_CB549138744_.jpg"
+              alt="wallpaper">
+            <p>Lorem, ipsum dolor.</p>
+          </div>
+
+          <div>
+            <a href="see more">See More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page2">
+      <p style="font-weight: 900; align-items: center; display: flex; padding: 5px; justify-content: center;">
+        Automotive essentials | Up to 60% off</p>
+      <div class="cart">
+        <div class="cartimg">
+          <div>
+            <img
+              src="https://images-eu.ssl-images-amazon.com/images/G/31/img18/HomeImprovement/harsmisc/2025/March/Wipes_low_res_V1._SY116_CB549138744_.jpg"
+              alt="supplies">
+            <p>Lorem ipsum dolor sit amet,</p>
+          </div>
+
+          <div>
+            <img
+              src="https://images-eu.ssl-images-amazon.com/images/G/31/img18/HomeImprovement/harsmisc/2025/March/Shower_heads_low_res_V1._SY116_CB549138744_.jpg"
+              alt="accessories">
+            <p>Lorem, ipsum dolor.</p>
+          </div>
+
+          <div>
+            <img
+              src="https://images-eu.ssl-images-amazon.com/images/G/31/img18/HomeImprovement/harsmisc/2025/March/Tools_low_res_V1._SY116_CB549138744_.jpg"
+              alt="tool">
+            <p>Lorem, ipsum dolor.</p>
+          </div>
+
+          <div>
+            <img
+              src="https://images-eu.ssl-images-amazon.com/images/G/31/img18/HomeImprovement/harsmisc/2025/March/Wallpapers_low_res_V1._SY116_CB549138744_.jpg"
+              alt="wallpaper">
+            <p>Lorem, ipsum dolor.</p>
+          </div>
+
+          <div>
+            <a href="see more">See More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <!.......................................................imgapage.......................................................!> -->
+  <div class="imgapage">
+    <div class="view">
+    <p style="font-weight: 900;  display: flex; padding: 5px;">
+      Related to items you've viewed  </p>  
+      <a href="see more" >See more</a>  
+   </div>
+   
+    
+      <div class="sildeimg">
+
+        <img src="https://m.media-amazon.com/images/I/61MDuZOh5RL._AC_SY200_.jpg" alt="">
+        <img src="https://m.media-amazon.com/images/I/51tnEYwVr6L._AC_SY200_.jpg" alt="">
+        <img src="https://m.media-amazon.com/images/I/41BH6uKUsZL._AC_SY200_.jpg" alt="">
+        <img src="https://m.media-amazon.com/images/I/41HBIWzVnkL._AC_SY200_.jpg" alt="">
+        <img src="https://m.media-amazon.com/images/I/31DUL5eE3oL._AC_SY200_.jpg" alt="">
+        <img src="https://m.media-amazon.com/images/I/61wgx9qMOTL._AC_SY200_.jpg" alt="">
+        <img src="https://m.media-amazon.com/images/I/41bxFnKD++L._AC_SY200_.jpg" alt="">
+        <img src="https://m.media-amazon.com/images/I/61GHdvdKNML._AC_SY200_.jpg" alt="">
+        <img src="https://m.media-amazon.com/images/I/51g6VESareL._AC_SY200_.jpg" alt="">
+        <img src="https://m.media-amazon.com/images/I/41GVN3-rHfL._AC_SY200_.jpg" alt="">
+        <img src="https://m.media-amazon.com/images/I/41GVN3-rHfL._AC_SY200_.jpg" alt="">
+        <img src="https://m.media-amazon.com/images/I/413PM52LftL._AC_SY200_.jpg" alt="">
+        <img src="https://m.media-amazon.com/images/I/61MDuZOh5RL._AC_SY200_.jpg" alt="">
+        <img src="https://m.media-amazon.com/images/I/51tnEYwVr6L._AC_SY200_.jpg" alt="">
+        <img src="https://m.media-amazon.com/images/I/41BH6uKUsZL._AC_SY200_.jpg" alt="">
+        <img src="https://m.media-amazon.com/images/I/41HBIWzVnkL._AC_SY200_.jpg" alt="">
+        <img src="https://m.media-amazon.com/images/I/31DUL5eE3oL._AC_SY200_.jpg" alt="">
+        <img src="https://m.media-amazon.com/images/I/61wgx9qMOTL._AC_SY200_.jpg" alt="">
+        <img src="https://m.media-amazon.com/images/I/41bxFnKD++L._AC_SY200_.jpg" alt="">
+        <img src="https://m.media-amazon.com/images/I/61GHdvdKNML._AC_SY200_.jpg" alt="">
+        <img src="https://m.media-amazon.com/images/I/51g6VESareL._AC_SY200_.jpg" alt="">
+        <img src="https://m.media-amazon.com/images/I/41GVN3-rHfL._AC_SY200_.jpg" alt="">
+        <img src="https://m.media-amazon.com/images/I/41GVN3-rHfL._AC_SY200_.jpg" alt="">
+        <img src="https://m.media-amazon.com/images/I/413PM52LftL._AC_SY200_.jpg" alt="">
+
+      </div>
+      
+  </div>
+      <!-- ================= FOOTER ================= -->
+<footer class="footer">
+
+  <!-- Back to top -->
+  <div class="back-top">
+    <a href="#">Back to top</a>
+  </div>
+
+  <!-- Footer Links -->
+  <div class="footer-links">
+
+    <div>
+      <h4>Get to Know Us</h4>
+      <p>About Amazon</p>
+      <p>Careers</p>
+      <p>Press Releases</p>
+      <p>Amazon Science</p>
+    </div>
+
+    <div>
+      <h4>Connect with Us</h4>
+      <p>Facebook</p>
+      <p>Twitter</p>
+      <p>Instagram</p>
+    </div>
+
+    <div>
+      <h4>Make Money with Us</h4>
+      <p>Sell on Amazon</p>
+      <p>Sell under Amazon Accelerator</p>
+      <p>Become an Affiliate</p>
+      <p>Advertise Your Products</p>
+    </div>
+
+    <div>
+      <h4>Let Us Help You</h4>
+      <p>Your Account</p>
+      <p>Returns Centre</p>
+      <p>100% Purchase Protection</p>
+      <p>Help</p>
+    </div>
+
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon Logo">
+    <p>© 1996-2026, Amazon Clone by You</p>
+  </div>
+
+</footer>
+
+    
+</body>
+
+</html>
